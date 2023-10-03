@@ -19,8 +19,8 @@ const Navbar = async () => {
                     <Link href='/protected/dashboard' className='mx-4 text-white'>Dashboard</Link>
 
                     <Link href='/protected/userlist' className='mx-4 text-white'>PDFList</Link>
-                    <Link href='/protected/edituser' className='mx-4 text-white'>EditUser</Link>
-                    <Link href='/protected/adminpanel' className='mx-4 text-white'>AdminPanel</Link>
+                    {session.user?.userType === "admin" ? (<><Link href='/protected/adminpanel' className='mx-4 text-white'>AdminPanel</Link> <Link href='/protected/edituser' className='mx-4 text-white'>EditUser</Link> </>
+                   ):(<></>)}
                     <Link href='/protected/uploadexcel' className='mx-4 text-white'>UploadExcel</Link>
                     <Link href='/protected/addarticle' className='mx-4 text-white'>AddArticle</Link>
 
