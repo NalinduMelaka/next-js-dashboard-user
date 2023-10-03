@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'OceanEdge',
-    description: 'OceanEdge order management system',
+    description: 'OceanEdge order management system web app',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
