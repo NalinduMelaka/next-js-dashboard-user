@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 const SignOut = () => {
     useEffect(() => {
         signOut({
-            callbackUrl: '/',
+            callbackUrl: 'https://main.d2me89d8lvxbla.amplifyapp.com/',
             redirect: true,
         });
     }, []);
