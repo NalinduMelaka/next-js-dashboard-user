@@ -10,6 +10,8 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 
 
 export const authOptions: AuthOptions = {
+     
+
     providers: [
         CredentialsProvider({
             name: 'credentials',
@@ -65,7 +67,7 @@ export const authOptions: AuthOptions = {
         signIn: '/auth/signin',
         signOut: '/auth/signout',
     },
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.NEXTAUTH_SECRET,
     session: {
         strategy: 'jwt',
         maxAge: 30 * 24 * 60 * 60,
