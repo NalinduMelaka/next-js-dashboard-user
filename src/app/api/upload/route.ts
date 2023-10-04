@@ -16,16 +16,14 @@ export async function POST(request: NextRequest) {
   const buffer = Buffer.from(bytes);
 
  
-  const path = join(process.cwd(), 'public', file.name);
-  await writeFile(path, buffer);
-  console.log(`File saved to /public/${file.name}`);
+  
 
   try {
-     const upload = await prisma.upload.create({
+    const upload = await prisma.pdfs.create({
       data: {
-        filename: file.name,
-        path: path,
-        userId: '651030f962a990e95bbe2d56'
+        title: file.name,
+        content: buffer,
+        
       }
     });
 
@@ -51,7 +49,6 @@ export async function POST(request: NextRequest) {
       attachments: [
         {
           filename: file.name,
-          path: path 
         }
       ]
     } as SendMailOptions);
