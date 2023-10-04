@@ -17,11 +17,10 @@ export async function POST(request: NextRequest) {
 
  
   const path = join(process.cwd(), 'public', file.name);
-  
   console.log(`File saved to /public/${file.name}`);
 
   try {
-     const upload = await prisma.upload.create({
+    const upload = await prisma.upload.create({
       data: {
         filename: file.name,
         path: path,
