@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 const SignOut = () => {
     useEffect(() => {
         signOut({
-            callbackUrl: process.env.NEXTAUTH_URL,
+            callbackUrl: '/',
             redirect: true,
         });
     }, []);
