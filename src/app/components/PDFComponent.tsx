@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 const PDFComponent = async () => {
   const fetchPDFs = async () => {
-    const pdfs = await prisma.upload.findMany();
+    const pdfs = await prisma.pdfs.findMany();
     return pdfs;
   };
 
@@ -28,11 +28,11 @@ const PDFComponent = async () => {
             pdfs.map(pdf => (
               <tr key={pdf.id}>
                 <td className="py-2 px-4 border-b">
-                  <Link href={`/pdf/${pdf.filename}`} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
-                    {pdf.filename}
+                  <Link href={`/pdf/${pdf.id}`} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
+                    {pdf.id}
                   </Link>
                 </td>
-                <td className='border-b'>{pdf.filename}</td>
+                <td className='border-b'>{pdf.title}</td>
               </tr>
             ))
           )}
