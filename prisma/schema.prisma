@@ -72,3 +72,10 @@ model Table2 {
   table1         table1 @relation(fields: [tableid], references: [article])
   tableid        String
 }
+
+model PDF {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  content Bytes
+}
+
