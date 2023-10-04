@@ -1,4 +1,6 @@
+import { writeFile } from 'fs/promises';
 import { NextRequest, NextResponse } from 'next/server';
+import { join } from 'path';
 import prisma from '@/app/lib/prisma';
 import nodemailer, { SendMailOptions, Transporter } from 'nodemailer';
 
@@ -14,15 +16,16 @@ export async function POST(request: NextRequest) {
   const buffer = Buffer.from(bytes);
 
  
+  const path = join(process.cwd(), 'public', file.name);
   
-
+  console.log(`File saved to /public/${file.name}`);
 
   try {
-    const upload = await prisma.pdfs.create({
+     const upload = await prisma.upload.create({
       data: {
-        title: file.name,
-        content: buffer,
-        
+        filename: file.name,
+        path: path,
+        userId: '651030f962a990e95bbe2d56'
       }
     });
 
@@ -48,6 +51,7 @@ export async function POST(request: NextRequest) {
       attachments: [
         {
           filename: file.name,
+          path: path 
         }
       ]
     } as SendMailOptions);
