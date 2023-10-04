@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 const SignOut = () => {
     useEffect(() => {
         signOut({
-            callbackUrl: 'https://main.d2me89d8lvxbla.amplifyapp.com/',
+            callbackUrl: process.env.NEXTAUTH_URL,
             redirect: true,
         });
     }, []);
