@@ -13,7 +13,7 @@ npx prisma generate
 
 npx prisma db push
 
-### Run development server 
+### Run development server j
 
 npm run dev
 
