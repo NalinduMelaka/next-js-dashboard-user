@@ -1,6 +1,4 @@
-import { writeFile } from 'fs/promises';
 import { NextRequest, NextResponse } from 'next/server';
-import { join } from 'path';
 import prisma from '@/app/lib/prisma';
 import nodemailer, { SendMailOptions, Transporter } from 'nodemailer';
 
