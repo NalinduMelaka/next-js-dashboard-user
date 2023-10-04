@@ -6,7 +6,7 @@ const SignOut = () => {
     useEffect(() => {
         signOut({
             callbackUrl: process.env.NEXTAUTH_URL,
-            redirect: true,
+            redirect: false,
         });
     }, []);
 
