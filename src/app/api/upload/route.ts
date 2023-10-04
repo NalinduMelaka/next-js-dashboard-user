@@ -21,11 +21,11 @@ export async function POST(request: NextRequest) {
   console.log(`File saved to /public/${file.name}`);
 
   try {
-    const upload = await prisma.upload.create({
+    const upload = await prisma.pDF.create({
       data: {
-        filename: file.name,
-        path: path,
-        userId: '651030f962a990e95bbe2d56'
+        title: file.name,
+        content: buffer,
+        
       }
     });
 
