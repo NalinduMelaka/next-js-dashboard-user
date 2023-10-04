@@ -73,7 +73,7 @@ model Table2 {
   tableid        String
 }
 
-model PDF {
+model pdfs {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   title   String
   content Bytes
