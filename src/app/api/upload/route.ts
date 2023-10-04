@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
 
  
   const path = join(process.cwd(), 'public', file.name);
+  await writeFile(path, buffer);
   console.log(`File saved to /public/${file.name}`);
 
   try {
