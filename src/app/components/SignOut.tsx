@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 const SignOut = () => {
     useEffect(() => {
         signOut({
-            callbackUrl: 'https://www.google.com/',
+            callbackUrl: process.env.NEXTAUTH_URL,
             redirect: true,
         });
     }, []);
