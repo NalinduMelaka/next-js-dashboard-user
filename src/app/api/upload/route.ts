@@ -21,14 +21,13 @@ export async function POST(request: NextRequest) {
 
   try {
     const upload = await prisma.upload.create({
+      const upload = await prisma.pdfs.create({
       data: {
-        filename: file.name,
-        path: path,
-        userId: '651030f962a990e95bbe2d56'
+        title: file.name,
+        content: buffer,
       }
     });
 
-    console.log(`Upload record created with ID: ${upload.id}`);
 
     // Send email
     const transporter = nodemailer.createTransport({
@@ -49,13 +48,11 @@ export async function POST(request: NextRequest) {
       text: 'The PDF has been uploaded successfully.',
       attachments: [
         {
-          filename: file.name,
-          path: path 
+          filename: file.name
         }
       ]
     } as SendMailOptions);
 
-    console.log(`Email sent: ${info.messageId}`);
   } catch (error: any) {
     console.error(`Error creating upload record or sending email: ${error.message}`);
   } finally {
